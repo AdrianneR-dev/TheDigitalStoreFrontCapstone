@@ -12,7 +12,9 @@
 /* 2. Reset & Base Styles */
 * {
     margin: 0;
-    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
     box-sizing: border-box;
 }
 
