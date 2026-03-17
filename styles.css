@@ -11,7 +11,7 @@
 
 /* 2. Reset & Base Styles */
 * {
-    margin: 0;
+    margin: 20px;
     padding: 0;
     box-sizing: border-box;
 }
