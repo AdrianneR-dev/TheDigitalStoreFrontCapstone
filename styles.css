@@ -17,6 +17,7 @@
 }
 
 body {
+    margin: 20px;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     background-color: var(--bg-light);
