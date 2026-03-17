@@ -205,7 +205,7 @@ body {
 
 /*Products Page Image resizing - the original image is way too big*/
 .product-image {
-    width: 100px;
+    width: 300px;
     height: auto; 
     display: block;
   }
