@@ -1,0 +1,347 @@
+/* 1. CSS Variables - The "Theme" Controller */
+:root {
+    --primary-color: #2c3e50;    /* Navbar & Footer */
+    --accent-color: #e74c3c;     /* Buttons & Highlights */
+    --bg-light: #f4f7f6;         /* Page Background */
+    --card-bg: #ffffff;          /* Card Background */
+    --text-main: #333333;        /* General Text */
+    --text-light: #ffffff;       /* Text on Dark Backgrounds */
+    --container-width: 1100px;
+}
+
+/* 2. Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 3. Navbar */
+.navbar {
+    background-color: black;
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li { margin-left: 20px; }
+
+.nav-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-light);
+}
+
+/* 4. Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 35px;
+    background: var(--accent-color);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* 5. Main Layout & Cards */
+.container {
+    flex: 1;
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    gap: 30px;
+    margin-top: -100px; /* Overlap effect */
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 40px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: translateY 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+
+
+/* 6. Footer */
+.footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.footer-icon {
+    width: 24px;  /* Adjust this number to your liking */
+    height: auto; /* Keeps the proportions so it doesn't look squished */
+}
+
+.footer-col {
+    background-color: black;
+    color: white;
+}
+
+/* Quick Links*/
+.quick-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.quick-links li { margin-left: 20px; }
+
+.quick-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Banner size and content */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    min-height: 70vh; /* Adjusts to screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(images/DigitalStoreFrontBanner.png);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .banner-content {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .banner-content h1 {
+    font-size: clamp(2rem, 5vw, 4rem); /* Automatically scales font size! */
+    margin-bottom: 15px;
+  }
+
+  /* The "Clamp" trick above:
+     2rem is the minimum size, 
+     5vw scales with the window width, 
+     4rem is the maximum size. */
+
+  .cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #ff4757;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+  }
+
+
+/*Products Page Image resizing - the original image is way too big*/
+.product-image {
+    width: 100px;
+    height: auto; 
+    display: block;
+  }
+
+
+/*Contact form on contactus.html*/
+.contact-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+
+  .contact-container h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  /* Form Grouping */
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+  }
+
+  /* Inputs and Textarea */
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Crucial for responsive width */
+    transition: border-color 0.3s ease;
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #007bff; /* Highlight color on click */
+  }
+
+  .form-textarea {
+    height: 120px;
+    resize: vertical; /* Allows user to grow the box but not widen it */
+  }
+
+  /* Submit Button */
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #222; /* Sleek black for e-commerce */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background-color: #444;
+  }
+
+  /* About Page Logo Banner*/
+  .about-page-logo-banner {
+    position: relative;
+    width: 100%;
+    min-height: 70vh; /* Adjusts to screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(images/SalvgBeautyLogoWhite.png);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* About Page paragraph */
+  .about-paragraph {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Mobile Tweaks */
+  @media (max-width: 480px) {
+    .contact-container {
+      margin: 20px;
+      padding: 20px;
+    }
+  }
+
+
+/* 7. MEDIA QUERIES (The Responsive Magic) */
+
+/* Tablet & Smaller Screens */
+@media (max-width: 992px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr); /* Drop to 2 columns */
+        margin-top: 20px; /* Remove overlap for cleaner mobile feel */
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* Stack logo and links */
+        gap: 10px;
+    }
+
+    .nav-links li {
+        margin: 0 10px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* 1 column on small phones */
+    }
+
+    .hero {
+        height: 50vh;
+    }
+}
