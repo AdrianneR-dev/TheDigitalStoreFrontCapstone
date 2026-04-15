@@ -91,6 +91,7 @@ body {
     transition: transform 0.2s ease;
 }
 
+/*The button will enlargen when the mouse hovers over it*/
 .cta-button:hover {
     transform: scale(1.05);
 }
@@ -135,17 +136,14 @@ body {
     margin-top: 50px;
 }
 
-.footer-icon {
-    width: 24px;  /* Adjust this number to your liking */
-    height: auto; /* Keeps the proportions so it doesn't look squished */
-}
+/*.footer-icon */
 
 .footer-col {
     background-color: black;
     color: white;
 }
 
-/* Quick Links*/
+/*Quick Links*/
 .quick-links {
     list-style-type: none;
     display: flex;
@@ -206,12 +204,49 @@ body {
 
 
 /*Products Page Image resizing - the original image is way too big*/
-.product-image {
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 50px;
+}
+
+
+.product {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.product img {
     width: 300px;
     height: auto; 
     display: block;
   }
 
+.product p {
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+/*Interactive Images on Products Page - images lifts when hovering and moves when clicked*/
+.interactive-image:hover {
+  /* Move the image UP (negative Y is up) */
+  transform: translateY(-8px);
+  
+  /* Make the shadow larger and softer to simulate height */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.interactive-image:active {
+  /* Move the image BACK DOWN, almost to the original position */
+  transform: translateY(-2px);
+  
+  /* Make the shadow very tight to make it look flat */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  
+  /* Optional: Make it slightly faster/snappier on the click */
+  transition: transform 0.05s ease-out, box-shadow 0.05s ease-out;
+}
 
 /*Contact form on contactus.html*/
 .contact-container {
@@ -309,14 +344,63 @@ body {
     box-sizing: border-box;
   }
 
-  /* Mobile Tweaks */
-  @media (max-width: 480px) {
+  /* Add to Cart Button Action*/
+  .lift-button {
+  /* Basic Styling */
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #3498db;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+
+  /* The "Magic" Transition */
+  /* This ensures the movement and color changes happen smoothly */
+  transition: all 0.2s ease;
+
+  /* Initial Shadow: Subtle and close to the button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 1. THE LIFT (Hover State) */
+.lift-button:hover {
+  background-color: #2980b9; /* Slightly darker blue */
+  transform: translateY(-4px); /* Moves the button UP */
+  
+  /* Make the shadow larger and blurrier to simulate height */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. THE PRESS (Active State) */
+.lift-button:active {
+  background-color: #1c598a; /* Much darker blue */
+  transform: translateY(-1px); /* Moves it back down almost to the start */
+  
+  /* Shrink the shadow to make it look flat against the page */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Mobile Tweaks */
+@media (max-width: 480px) {
     .contact-container {
       margin: 20px;
       padding: 20px;
     }
   }
-
 
 /* 7. MEDIA QUERIES (The Responsive Magic) */
 
@@ -326,14 +410,36 @@ body {
         grid-template-columns: repeat(2, 1fr); /* Drop to 2 columns */
         margin-top: 20px; /* Remove overlap for cleaner mobile feel */
     }
+
+    .navbar {
+    padding: 15px 30px; /* Slightly smaller */
+  }
+  
+  .navbar a {
+    font-size: 16px;
+}
+
+.quick-links {
+  padding: 15px 30px;
+}
+
+.quick-links a {
+   font-size: 16px;
+}
 }
 
 /* Mobile Phones */
 @media (max-width: 600px) {
     .navbar {
         flex-direction: column; /* Stack logo and links */
+        padding: 10px 15px; /* Compact for mobile */
         gap: 10px;
     }
+  
+  .navbar a {
+    font-size: 14px;
+    padding: 5px 0;
+  }
 
     .nav-links li {
         margin: 0 10px;
@@ -346,4 +452,33 @@ body {
     .hero {
         height: 50vh;
     }
+
+    .quick-links {
+      flex-direction: column; /* Stack logo and links */
+      padding: 10px 15px; /* Compact for mobile */
+      gap: 10px;
+    }
+
+    .quick-links a {
+      font-size: 14px;
+      padding: 5px 0;
+    }
+
+    .quick-links li {
+      margin: 0 10px;
+    }
+}
+
+/* Desktop: 3 Columns (900px and up) */
+@media (min-width: 900px) {
+  .products-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet: 2 Columns (typically 600px to 900px) */
+@media (min-width: 600px) {
+  .products-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

@@ -12,3 +12,6 @@ The following are prompts I entered into Google Gemini AI to create various snip
 7. Create the html code for a contact form on an ecommerce website that accepts email address and has a textbox for the message being sent.
 8. What css code takes bullets off an unordered list?
 9. what is the standard margin and padding for a paragraph in boostrap css
+10. create html and css code for a button that lifts when the mouse hovers over it and then darkens and presses when clicked
+11. create css code to make navbar change size based on screen size
+12. create css to make the quick links change size based on screen size
