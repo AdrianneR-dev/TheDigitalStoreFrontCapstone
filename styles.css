@@ -28,9 +28,10 @@ body {
     min-height: 100vh;
 }
 
-body p {
+body p, h1, h2, ul, img, button {
     padding: 30px;
 }
+
 
 /* 3. Navbar */
 .navbar {
