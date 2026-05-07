@@ -23,11 +23,13 @@ body {
     line-height: 1.6;
     background-color: var(--bg-light);
     color: var(--text-main);
-    padding-left: 30px;
-    padding-right: 30px
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+body p {
+    padding: 30px;
 }
 
 /* 3. Navbar */
@@ -211,6 +213,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, 300px);
     gap: 50px;
+    justify-content: center;
 }
 
 
@@ -218,6 +221,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    padding: 100px;
 }
 
 .product img {
@@ -435,13 +439,13 @@ body {
 @media (max-width: 600px) {
     .navbar {
         flex-direction: column; /* Stack logo and links */
-        padding: 10px 15px; /* Compact for mobile */
+        /* padding: 10px 15px; /* Compact for mobile */
         gap: 10px;
     }
   
   .navbar a {
     font-size: 14px;
-    padding: 5px 0;
+    /* padding: 5px 0; */
   }
 
     .nav-links li {
@@ -458,13 +462,13 @@ body {
 
     .quick-links {
       flex-direction: column; /* Stack logo and links */
-      padding: 10px 15px; /* Compact for mobile */
+      /* padding: 10px 15px; /* Compact for mobile */
       gap: 10px;
     }
 
     .quick-links a {
       font-size: 14px;
-      padding: 5px 0;
+      /* padding: 5px 0; */
     }
 
     .quick-links li {
