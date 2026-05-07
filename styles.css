@@ -395,12 +395,12 @@ body {
 }
 
 /* Mobile Tweaks */
-@media (max-width: 480px) {
+/*@media (max-width: 480px) {
     .contact-container {
       margin: 20px;
       padding: 20px;
     }
-  }
+  } */
 
 /* 7. MEDIA QUERIES (The Responsive Magic) */
 
