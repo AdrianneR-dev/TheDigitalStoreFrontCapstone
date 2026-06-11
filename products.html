@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cart.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
@@ -20,66 +21,11 @@
 
     <section aria-label="products">
       <h1 id="products" aria-labelledby="products">Products</h1>
-      <div class="products-list">
-        <div class="product">
-          <a href="activatedcharcoalscrub.html" alt="image link to activated charcoal scrub product details page"><img height="300px" src="images/activatedCharcoalScrub.webp" class="interactive-image" alt="charcoal sugar scrub"/></a>
-          <p>Activated Charcoal Sugar Scrub</p>
-          <span>$5.00 USD</span>
-        </div>
-
-        <div class="product">
-          <a href="seamossbarsoap.html" alt="image link to sea moss soap bar product details page"><img height="300px" src="images/seamossbarsoap.webp" class="interactive-image" alt="sea moss bar soap"/></a>
-          <p>Sea Moss Bar Soap</p>
-          <span>$5.00 USD</span>
-        </div>
-
-         <div class="product">
-          <a href="liquidseamosssoap.html" alt="image link to liquid form of sea moss soap product details page"><img height="300px" src="images/liquidseamossSoap.jpg" class="interactive-image" alt="bottle with pump containing homemade liquid soap"/></a>
-          <p>Liquid Sea Moss Soap</p>
-          <span>$13.00 USD</span>
-        </div>
-
-         <div class="product">
-          <a href="seamosslotion.html" alt="image link to sea moss infused lotion product details page"><img height="300px" src="images/oilFreeLotion.webp" class="interactive-image" alt="opaque bottle of oil free lotion"/></a>
-          <p>Sea Moss Lotion for Eczema</p>
-          <span>$10.00 USD</span>
-        </div>
-
-         <div class="product">
-          <a href="castilesoap.html" alt="image link to liquid castile soap product details page"><img height="300px" src="images/liquidcastilesoap.webp" class="interactive-image" alt="liquid soap in a bottle"/></a>
-          <p>Castile Soap</p>
-          <span>$13.00 USD</span>
-        </div>
-
-         <div class="product">
-          <a href="activatedcharcoalsoapbar.html" alt="image link to activate charcoal soap bar product details page"><img height="300px" src="images/charcoalBarSoap.webp" class="interactive-image" alt="a black bar of soap" /></a>
-          <p>Activated Charcoal Soap Bar</p>
-          <span>$5.00 USD</span>
-        </div>
-
-         <div class="product">
-          <a href="liquidactivatedcharcoalsoap.html" alt="image link to liquid form of activated charcoal soap product details page"><img height="300px" src="images/liquidActivatedCharcoalSoap.webp" class="interactive-image" alt="liquid soap with black color in a container"/></a>
-          <p>Liquid Activated Charcoal Soap</p>
-          <span>$13.00 USD</span>
-        </div>
-
-         <div class="product">
-          <a href="sulfurbarsoap.html" alt="image link to bar soap containing sulfur product details page"><img height="300px" src="images/sulfurBarSoap.webp" class="interactive-image" alt="yellow bar of soap"/></a>
-          <p>Sulfur Bar Soap</p>
-          <span>$5.00 USD</span>
-        </div>
-
-         <div class="product">
-          <a href="liquidsulfursoap.html" alt="image link to liquid form of sulfur soap product details page"><img height="300px" src="images/liquidSulfurSoap.webp" class="interactive-image" alt="yellow liquid soap"/></a>
-          <p>Liquid Sulfur Soap</p>
-          <span>$13.00 USD</span>
-        </div>
-      </div>
+      <!-- Empty at launch — products.js dynamically builds the cards on page mount -->
+      <div class="products-list" id="product-catalog"></div>
     </section>
 
-</body>
-
-<footer class="site-footer">
+    <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-col">
       <h3>Salvg Beauty</h3>
@@ -106,7 +52,12 @@
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2026 Salvg Beauty. All rights reserved. | <a href="#">Privacy Policy</a> <a href="#">Return Policy</a></p>
+    <p>&copy; 2026 Salvg Beauty. All rights reserved. | <a href="privacypolicy.html">Privacy Policy</a> <a href="returnpolicy.html">Return Policy</a></p>
   </div>
 </footer>
+<script src="products.js"></script>
+<script src="cart.js"></script>
+</body>
+
+
 </html>

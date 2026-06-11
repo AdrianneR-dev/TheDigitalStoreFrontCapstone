@@ -10,13 +10,35 @@
 }
 
 /* 2. Reset & Base Styles */
-* {
-    margin: 0;
-    /* padding-left: 1px;
-    padding-right: 1px; */
-    padding-bottom: 5px;
+*, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+/* ── Bootstrap conflict fix ──────────────────────────────────────────────────
+   Bootstrap 5 defines .carousel-item { display: none } and only shows
+   the .active one. This completely breaks our custom flex carousel.
+   These overrides restore the correct behaviour. */
+.carousel-wrapper .carousel-item {
+    display: block !important;
+    position: static !important;
+    float: none !important;
+    min-width: 100% !important;
+    height: 100% !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    transition: none !important;
+}
+
+.carousel-wrapper .carousel-track {
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
 
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -80,9 +102,87 @@ body p, h1, h2, ul, button {
     padding: 0 20px;
 }
 
+/* Make sure the hero section is the stacking context */
+.hero-banner {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* or whatever height you want */
+}
+
 .hero-content h1 {
     font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
     margin-bottom: 15px;
+}
+
+/* Banner size and content */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    min-height: 70vh; /* Adjusts to screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(images/digitalstorefrontbanner.png);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+.banner-content {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  /* Content (heading, text, button) floats on top and stays put */
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+}
+
+.banner-content h1 {
+    font-size: clamp(2rem, 5vw, 4rem); /* Automatically scales font size! */
+    margin-bottom: 15px;
+  }
+
+  /* The "Clamp" trick above:
+     2rem is the minimum size, 
+     5vw scales with the window width, 
+     4rem is the maximum size. */
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #ff4757;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+  }
+
+/* Carousel sits at the very back */
+.hero-carousel {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+/* Overlay sits in the middle */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.45);
 }
 
 .cta-button {
@@ -163,51 +263,6 @@ body p, h1, h2, ul, button {
     font-weight: 500;
     transition: color 0.3s ease;
 }
-
-/* Banner size and content */
-.hero-banner {
-    position: relative;
-    width: 100%;
-    min-height: 70vh; /* Adjusts to screen height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url(images/DigitalStoreFrontBanner.png);
-    background-size: cover;
-    background-position: center;
-    font-family: sans-serif;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-
-  .banner-content {
-    width: 100%;
-    max-width: 800px;
-  }
-
-  .banner-content h1 {
-    font-size: clamp(2rem, 5vw, 4rem); /* Automatically scales font size! */
-    margin-bottom: 15px;
-  }
-
-  /* The "Clamp" trick above:
-     2rem is the minimum size, 
-     5vw scales with the window width, 
-     4rem is the maximum size. */
-
-  .cta-button {
-    display: inline-block;
-    padding: 12px 28px;
-    background: #ff4757;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-  }
-
 
 /*Products Page Image resizing - the original image is way too big*/
 .products-list {
@@ -389,6 +444,131 @@ body p, h1, h2, ul, button {
   
   /* Shrink the shadow to make it look flat against the page */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 1. The Window: Now spans the full width of the screen */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px;      /* Fixed height — adjust this number to your liking */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* 2. The Train: Unchanged, but now dynamically scales to the screen width */
+.carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease-in-out; 
+}
+
+/* 3. Individual slide: Now matches the full width of the screen */
+.carousel-item {
+    min-width: 50%;
+    height: 50%;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+/* Forces the link to fill the entire slide container */
+.carousel-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Override global * { padding-bottom: 5px } for all carousel elements
+   so the height: 100% chain stays intact and images are visible */
+.carousel-wrapper,
+.carousel-track,
+.carousel-item,
+.carousel-item a,
+.carousel-item img {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* 4. Navigation Buttons (Adjusted padding/size for a bigger screen layout) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 30px;    /* Slightly larger for full screen */
+    padding: 16px 22px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    z-index: 10;        /* Ensures buttons stay on top of the full-screen images */
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+/* ── Scrolling image strip ── */
+.hero-carousel {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+ 
+.hero-carousel-track {
+    display: flex;
+    height: 100%;
+    /* 8 slides × 100vw each = 800vw total width */
+    width: 800vw;
+    animation: heroSlide 24s linear infinite;
+}
+ 
+/* Each slide = one viewport width, full height */
+.hero-slide {
+    flex: 0 0 100vw;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+ 
+/* Keyframe: slide left by exactly 50% (the 4 real slides) then snap back */
+@keyframes heroSlide {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+ 
+/* ── Dark overlay so text is always legible ── */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.45);
+}
+ 
+/* ── Banner text stays on top and centered ── */
+.banner-content {
+    position: relative;
+    z-index: 2;       /* above both carousel and overlay */
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
 }
 
 @media (max-width: 768px) {

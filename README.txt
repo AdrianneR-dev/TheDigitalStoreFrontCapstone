@@ -25,3 +25,17 @@ The following are prompts I entered into Google Gemini AI to create various snip
 10. create html and css code for a button that lifts when the mouse hovers over it and then darkens and presses when clicked
 11. create css code to make navbar change size based on screen size
 12. create css to make the quick links change size based on screen size
+
+
+Updated 06/08/2026
+I have experimented with using Claude AI in addition to Gemini AI. The following are the prompts I entered for each.
+13. (Google Gemini) - Do I use CSS or JavaScript to create an image carousel (sliding to the left and repeating) on my website ? How do I code my index.html file for this?
+14. (In the same conversation as above) Now create the necessary CSS and vanilla JavaScript for this html.
+15. How do I make the carousel width to fit the screen and how do I center the carousel?
+16. (Claude AI - I uploaded my index.html file) I have a hero-banner on this html page. I want to turn the image into a carousel that slides to the left continuously while keeping the button in place.
+17. (in the same conversation above) My images were not showing in the featured products due to a div tag not being closed and my cta-button was not in the correct place due to a grammatical error in misspelling section.
+18. Explain what the following statement means: The Render Loop: Your HTML markup on the product catalog page should be empty at launch. JavaScript must dynamically build out the UI on page mount.
+19. (after uploading the products.html page to Claude AI) Use this file to create a JavaScript file following this example.
+20. (after uploading each product page to Claude AI) Each html page that I uploaded has an add-to-cart button. Create the necessary CSS file and JavaScript file to create a slide-out cart that adds a product to it every-time the add-to-cart button is pressed. In the cart, the user should have a "+" or a "-" to increase or decrease the number of items added per product. The price total and number of items should update as well. There should be thumbnail images of each product next to the names of the products in the cart.
+
+I used Claude AI to debug and resolve any errors in the code.

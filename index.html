@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Store-front Capstone</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cart.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
@@ -20,12 +21,65 @@
 
     <!--Website Banner-->
     <section class="hero-banner">
+       <!-- Continuously sliding image track behind the content -->
+        <div class="hero-carousel" aria-hidden="true">
+            <div class="hero-carousel-track">
+                <!-- Images duplicated to create seamless infinite loop -->
+                <div class="hero-slide" style="background-image: url('images/DigitalStoreFrontBanner.png')"></div>
+                <div class="hero-slide" style="background-image: url('images/DigitalStoreFrontBanner.png')"></div>
+                <div class="hero-slide" style="background-image: url('images/DigitalStoreFrontBanner.png')"></div>
+                <div class="hero-slide" style="background-image: url('images/DigitalStoreFrontBanner.png')"></div>
+             <!-- Duplicates for seamless loop -->
+            <div class="hero-slide" style="background-image: url('images/DigitalStoreFrontBanner.png')"></div>
+            <div class="hero-slide" style="background-image: url('images/DigitalStoreFrontBanner.png')"></div>
+            <div class="hero-slide" style="background-image: url('images/DigitalStoreFrontBanner.png')"></div>
+            <div class="hero-slide" style="background-image: url('images/DigitalStoreFrontBanner.png')"></div>
+        </div>
+      </div>
+         
+        <!-- Dark overlay so text stays readable -->
+        <div class="hero-overlay"></div>
+
+
         <div class="banner-content">
         <h1>Salvage Your Skin</h1>
         <p>Upgrade your skincare routine with anti-pollution skincare products!</p>
         <a href="products.html" class="cta-button">SHOP THE COLLECTION</a>
   </div>
   <!--cta is Call to Action-->
+</section>
+
+<section>
+  <h1>Featured Products</h1>
+
+        <div class="carousel-wrapper">
+            
+            <div class="carousel-track" id="carousel-track">
+                <div class="carousel-item">
+                  <a href="sulfurbarsoap.html">
+                    <img src="images/sulfurbarsoap.webp" alt="Sulfur Bar Soap"/>
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a href="activatedcharcoalsoapbar.html">
+                    <img src="images/charcoalbarsoap.webp" alt="Charcoal Bar Soap"/>
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a href="seamossbarsoap.html">
+                    <img src="images/seamossbarsoap.webp" alt="Seamoss Bar Soap"/>
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a href="seamosslotion.html">
+                    <img src="images/oilfreelotion.webp" alt="Oil Free Lotion"/>
+                  </a>
+                </div>
+            </div>
+
+            <button class="carousel-btn prev-btn" id="prev-btn" aria-label="Previous Slide">&#10094;</button>
+            <button class="carousel-btn next-btn" id="next-btn" aria-label="Next Slide">&#10095;</button>
+        </div>
 </section>
 
 <footer class="site-footer">
@@ -54,9 +108,12 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>2026 Salvg Beauty. All rights reserved. | <a href="#">Privacy Policy</a> <a href="#">Return Policy</a></p>
+     <p>&copy; 2026 Salvg Beauty. All rights reserved. | <a href="privacypolicy.html">Privacy Policy</a> <a href="returnpolicy.html">Return Policy</a></p>
   </div>
 </footer>
+<script src="indexcarousel.js"></script>
+<script src="products.js"></script>
+<script src="cart.js"></script>
 </body>
 
 </html>
