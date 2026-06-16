@@ -12,9 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to move the track to the correct slide
     const updateCarousel = () => {
-        // The magic number: width of one slide is 100% of the container
-        // Shifting -100% moves to slide 2, -200% moves to slide 3, etc.
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        // Read the actual rendered width of one slide as a % of the track.
+        // On desktop each slide is 50% wide (2 visible), on mobile 100% (1 visible).
+        // Using the live pixel widths keeps the math correct at every breakpoint.
+        const slideWidthPercent = (slides[0].offsetWidth / track.offsetWidth) * 100;
+        track.style.transform = `translateX(-${currentIndex * slideWidthPercent}%)`;
     };
 
     // Next Button Click Event
