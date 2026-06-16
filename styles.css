@@ -571,6 +571,7 @@ body p, h1, h2, ul, button {
     padding: 2rem;
 }
 
+/* Adjust media items in hero-banner carousel and featured products carousel for each device screen size */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
